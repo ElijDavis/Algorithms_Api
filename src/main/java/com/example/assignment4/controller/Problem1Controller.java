@@ -1,4 +1,4 @@
-/*package com.example.assignment4.controller;
+package com.example.assignment4.controller;
 
 import com.example.assignment4.service.Max2ndMax;
 import com.example.assignment4.service.Problem1;
@@ -16,47 +16,9 @@ public class Problem1Controller {
         return Problem1.dcfindmax2ndmax(input, 0, input.length - 1);
     }*/
 
-    /*@GetMapping("/run-json")
+    @GetMapping("/run-json")
     public Max2ndMax runJson(@RequestParam String input) {
         return problem1.solveJson(input);
-    }*/
-
-    /*@PostMapping("/run-json")
-    public Max2ndMax runJson(@RequestBody String input) {
-        return problem1.solveJson(input);
     }
 
-
-}*/
-
-package com.example.assignment4.controller;
-
-import com.example.assignment4.service.Max2ndMax;
-import com.example.assignment4.service.Problem1;
-import org.springframework.web.bind.annotation.*;
-
-@RestController
-@RequestMapping("/api/problem1")
-public class Problem1Controller {
-
-    private final Problem1 problem1 = new Problem1();
-
-    // POST endpoint that accepts a JSON object: { "input": "10,60,3,..." }
-    @PostMapping("/run-json")
-    public Max2ndMax runJson(@RequestBody InputWrapper inputWrapper) {
-        return problem1.solveJson(inputWrapper.getInput());
-    }
-
-    // Wrapper class to map JSON input
-    public static class InputWrapper {
-        private String input;
-
-        public String getInput() {
-            return input;
-        }
-
-        public void setInput(String input) {
-            this.input = input;
-        }
-    }
 }
