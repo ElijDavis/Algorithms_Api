@@ -55,6 +55,19 @@ public class Problem1 {
     }
     }
 
+	//Use to return a string in the api
+	public String solve(String input) {
+        // Convert "1,2,3" → int[]
+        String[] parts = input.split(",");
+        int[] arr = new int[parts.length];
+        for (int i = 0; i < parts.length; i++) {
+            arr[i] = Integer.parseInt(parts[i].trim());
+        }
+
+        Max2ndMax result = dcfindmax2ndmax(arr, 0, arr.length - 1);
+        return "Max: " + result.getMax() + ", 2nd Max: " + result.getMax2nd();
+    }
+
 	//Use to return a json object in the api
 	public Max2ndMax solveJson(String input) {
     	String[] parts = input.split(",");

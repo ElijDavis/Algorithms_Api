@@ -16,9 +16,22 @@ public class Problem1Controller {
         return Problem1.dcfindmax2ndmax(input, 0, input.length - 1);
     }*/
 
-    @GetMapping("/run-json")
-    public Max2ndMax runJson(@RequestParam String input) {
-        return problem1.solveJson(input);
+    // Uncomment this method if you want to return a string response
+    @GetMapping("/run")
+    public String runProblem(@RequestParam String input) {
+        return problem1.solve(input);
     }
 
+    /*@GetMapping("/run-json")
+    public Max2ndMax runJson(@RequestParam String input) {
+        return problem1.solveJson(input);
+    }*/
+
+    /*@PostMapping("/run-json")
+    public Max2ndMax runJson(@RequestBody String input) {
+        return problem1.solveJson(input);
+    }*/
+
+
 }
+
