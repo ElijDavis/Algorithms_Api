@@ -10,14 +10,9 @@ public class Problem1Controller {
 
     private final Problem1 problem1 = new Problem1();
 
-    /*@GetMapping("/run-json")
+    @GetMapping("/run-json")
     public Max2ndMax runJson(@RequestParam String input) {
         return problem1.solveJson(input);
-    }*/
-
-    @GetMapping("/run-json")
-    public int runJson1(@RequestParam String input) {
-        return problem1.solveJson1(input);
     }
 
 

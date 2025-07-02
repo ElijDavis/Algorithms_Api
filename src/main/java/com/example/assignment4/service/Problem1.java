@@ -6,7 +6,7 @@ import java.util.List;
 public class Problem1 {
     // Static method to find max and 2nd max in an array using divide and conquer approach
 	//static Max2ndMax result = new Max2ndMax();
-    public static Max2ndMax dcfindmax2ndmax(int[] A, int i, int j) {
+    /*public static Max2ndMax dcfindmax2ndmax(int[] A, int i, int j) {
     // Complete this method to find max and 2nd max in an array A
     // At most 1.5n-2 comparisons
     // Algorithms that make more than 1.5n-2 comparisons will be scored out of 10 points
@@ -53,7 +53,47 @@ public class Problem1 {
         result.setMax2nd(global2ndMax);
         return result;
     }
+    }*/
+
+    public static Max2ndMax dcfindmax2ndmax(int[] A, int i, int j) {
+    if (i == j) {
+        Max2ndMax result = new Max2ndMax();
+        result.setMax(A[i]);
+        result.setMax2nd(Integer.MIN_VALUE);
+        return result;
+    } else if (i + 1 == j) {
+        Max2ndMax result = new Max2ndMax();
+        int first = A[i];
+        int second = A[j];
+        if (first > second) {
+            result.setMax(first);
+            result.setMax2nd(second);
+        } else {
+            result.setMax(second);
+            result.setMax2nd(first);
+        }
+        return result;
+    } else {
+        int mid = (i + j) / 2;
+        Max2ndMax left = dcfindmax2ndmax(A, i, mid);
+        Max2ndMax right = dcfindmax2ndmax(A, mid + 1, j);
+
+        int max, secondMax;
+        if (left.getMax() > right.getMax()) {
+            max = left.getMax();
+            secondMax = Math.max(left.getMax2nd(), right.getMax());
+        } else {
+            max = right.getMax();
+            secondMax = Math.max(right.getMax2nd(), left.getMax());
+        }
+
+        Max2ndMax result = new Max2ndMax();
+        result.setMax(max);
+        result.setMax2nd(secondMax);
+        return result;
     }
+    }
+
 
 	//Use to return a json object in the api
 	public Max2ndMax solveJson(String input) {
@@ -63,24 +103,7 @@ public class Problem1 {
         	arr[i] = Integer.parseInt(parts[i].trim());
     	}
 
-    	//return dcfindmax2ndmax(arr, 0, arr.length - 1);
-
-        Max2ndMax n = dcfindmax2ndmax(arr, 0, 0);
-        return n;
-	}
-
-    //Use to return a json object in the api
-	public int solveJson1(String input) {
-    	String[] parts = input.split(",");
-    	int[] arr = new int[parts.length];
-    	for (int i = 0; i < parts.length; i++) {
-        	arr[i] = Integer.parseInt(parts[i].trim());
-    	}
-
-    	//return dcfindmax2ndmax(arr, 0, arr.length - 1);
-
-        Max2ndMax n = dcfindmax2ndmax(arr, 0, 0);
-        return n.getMax2nd();
+    	return dcfindmax2ndmax(arr, 0, arr.length - 1);
 	}
 
 
