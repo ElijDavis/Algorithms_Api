@@ -8,7 +8,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
-                .allowedOrigins("http://localhost:3000", "https://algorithms-api.onrender.com") // TS dev server
+                .allowedOrigins("http://localhost:3000", "https://algorithms-api.onrender.com", "https://portfolio-zeta-lemon-73.vercel.app/") // TS dev server
                 .allowedMethods("*");
     }
 }
