@@ -92,6 +92,7 @@ public class Problem1 {
         int max = pair.getMax();
         int max2nd = pair.getMax2nd();
         System.out.println("The max and 2nd max of the given array are " + max + " and " + max2nd + ".");
-		// Your method should return 100 and 67
+		System.out.println("This is what the actual function gives me " + dcfindmax2ndmax(givenarray, 0, givenarray.length - 1));
+        // Your method should return 100 and 67
     }
 }

@@ -22,10 +22,10 @@ public class Problem1Controller {
         return problem1.solve(input);
     }
 
-    /*@GetMapping("/run-json")
+    @GetMapping("/run-json")
     public Max2ndMax runJson(@RequestParam String input) {
         return problem1.solveJson(input);
-    }*/
+    }
 
     /*@PostMapping("/run-json")
     public Max2ndMax runJson(@RequestBody String input) {
