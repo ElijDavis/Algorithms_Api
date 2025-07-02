@@ -69,6 +69,20 @@ public class Problem1 {
         return n;
 	}
 
+    //Use to return a json object in the api
+	public int solveJson1(String input) {
+    	String[] parts = input.split(",");
+    	int[] arr = new int[parts.length];
+    	for (int i = 0; i < parts.length; i++) {
+        	arr[i] = Integer.parseInt(parts[i].trim());
+    	}
+
+    	//return dcfindmax2ndmax(arr, 0, arr.length - 1);
+
+        Max2ndMax n = dcfindmax2ndmax(arr, 0, 0);
+        return n.getMax2nd();
+	}
+
 
     public static void main(String[] args) {
 		//TODO Auto-generated method stub
