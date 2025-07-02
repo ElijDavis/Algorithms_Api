@@ -55,19 +55,6 @@ public class Problem1 {
     }
     }
 
-	//Use to return a string in the api
-	public String solve(String input) {
-        // Convert "1,2,3" → int[]
-        String[] parts = input.split(",");
-        int[] arr = new int[parts.length];
-        for (int i = 0; i < parts.length; i++) {
-            arr[i] = Integer.parseInt(parts[i].trim());
-        }
-
-        Max2ndMax result = dcfindmax2ndmax(arr, 0, arr.length - 1);
-        return "Max: " + result.getMax() + ", 2nd Max: " + result.getMax2nd();
-    }
-
 	//Use to return a json object in the api
 	public Max2ndMax solveJson(String input) {
     	String[] parts = input.split(",");
@@ -92,7 +79,6 @@ public class Problem1 {
         int max = pair.getMax();
         int max2nd = pair.getMax2nd();
         System.out.println("The max and 2nd max of the given array are " + max + " and " + max2nd + ".");
-		System.out.println("This is what the actual function gives me " + dcfindmax2ndmax(givenarray, 0, givenarray.length - 1));
         // Your method should return 100 and 67
     }
 }
