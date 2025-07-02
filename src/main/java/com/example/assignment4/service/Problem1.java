@@ -1,7 +1,7 @@
 package com.example.assignment4.service;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 public class Problem1 {
     // Static method to find max and 2nd max in an array using divide and conquer approach
