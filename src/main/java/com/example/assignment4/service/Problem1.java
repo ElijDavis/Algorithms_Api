@@ -63,7 +63,10 @@ public class Problem1 {
         	arr[i] = Integer.parseInt(parts[i].trim());
     	}
 
-    	return dcfindmax2ndmax(arr, 0, arr.length - 1);
+    	//return dcfindmax2ndmax(arr, 0, arr.length - 1);
+
+        Max2ndMax n = dcfindmax2ndmax(arr, 0, 0);
+        return n;
 	}
 
 
