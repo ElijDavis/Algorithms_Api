@@ -27,6 +27,6 @@ public class CorsConfig implements WebMvcConfigurer {
                     "http://localhost:3000", 
                     "https://portfolio-zeta-lemon-73.vercel.app"
                 )
-                .allowedMethods("*");
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
     }
 }
