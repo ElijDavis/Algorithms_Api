@@ -103,7 +103,10 @@ public class Problem1 {
         	arr[i] = Integer.parseInt(parts[i].trim());
     	}
 
-    	return dcfindmax2ndmax(arr, 0, arr.length - 1);
+        Max2ndMax result = dcfindmax2ndmax(arr, 0, arr.length - 1);
+        System.out.println("Max: " + result.getMax() + ", 2nd Max: " + result.getMax2nd());
+
+    	return result;
 	}
 
 
