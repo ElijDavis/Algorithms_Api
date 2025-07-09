@@ -1,5 +1,7 @@
 package com.example.Assignments.Assignment3.service;
 
+import com.example.Assignments.Utility;
+
 public class Problem1 {
 
 	static int greatest = 0;
@@ -24,6 +26,12 @@ public class Problem1 {
 		return (A[index] > greatest) ? A[index] : greatest;
 
 	}
+
+	public int biggie(String arr){
+		int[] A = Utility.parseIntArray(arr);
+		return largest(A);
+	}
+
 	public static void main(String[] args) {
 		// test your largest() method here
 		int[] testarray = {12,25,36,85,28};

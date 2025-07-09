@@ -38,7 +38,11 @@ public class Problem3 {
 		return Math.floor(left);
 	}
 	
-
+	public double sqrt(String x){
+		// Overloaded method to call the recursive squareroot with initial parameters
+		double inputDouble = Double.parseDouble(x);
+		return squareroot((int) inputDouble);
+	}
 	
 	public static void main(String[] args) {
 		// test your squareroot() method here

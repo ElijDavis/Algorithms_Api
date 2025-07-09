@@ -4,7 +4,8 @@ package com.example.Assignments.Assignment2.service;
 //Cmpt 435L 111
 //feb 14 2024
 import java.util.Arrays;
-import java.util.List;
+//import java.util.List;
+import static com.example.Assignments.Utility.parseIntArray;
 
 public class Problem1 {
 
@@ -48,7 +49,10 @@ public class Problem1 {
 		return found;
 	}
 	
-
+	public boolean found(String input){
+		int [] arr = parseIntArray(input);
+		return findi( arr, 0, arr.length);
+	}
 	
 	public static void main(String[] args) {
 		// test your maximum() method here

@@ -192,6 +192,64 @@ public class Graph {
 		}
 		System.out.println();
 	}
+
+
+	/////////////////////////////////////////////////////////////////////
+	/// The functions below are helper functions to create a graph and it's points
+	/////////////////////////////////////////////////////////////////////
+
+	public Graph createGraph(int n, int[] labels, int[][] edges){
+		// Create a graph with n vertices, labels, and edges
+		Graph graph = new Graph(n);
+		for (int i = 0; i < n; i++) {
+			graph.setLabel(i, labels[i]);
+		}
+		for (int[] edge : edges) {
+			graph.addEdge(edge[0], edge[1], edge[2]);
+		}
+		return graph;
+	}
+
+	public String DFS(Graph graph, int startVertex) {
+		// Perform DFS on the graph starting from startVertex
+		StringBuilder result = new StringBuilder();
+		boolean[] visited = new boolean[graph.size()];
+		Stack<Integer> stack = new Stack<>();
+		stack.push(startVertex);
+		
+		while (!stack.isEmpty()) {
+			int vertex = stack.pop();
+			if (!visited[vertex]) {
+				visited[vertex] = true;
+				result.append(graph.getLabel(vertex)).append(" ");
+				int[] neighbors = graph.neighbors(vertex);
+				for (int neighbor : neighbors) {
+					if (!visited[neighbor]) {
+						stack.push(neighbor);
+					}
+				}
+			}
+		}
+		
+		return result.toString().trim();
+	}
+
+	public String getAdjacencyList(Graph graph) {
+		// Get the adjacency list of the graph
+		StringBuilder result = new StringBuilder();
+		for (int i = 0; i < graph.size(); i++) {
+			result.append(graph.getLabel(i)).append(": ");
+			int[] neighbors = graph.neighbors(i);
+			for (int j = 0; j < neighbors.length; j++) {
+				result.append(graph.getLabel(neighbors[j]));
+				if (j < neighbors.length - 1) {
+					result.append(", ");
+				}
+			}
+			result.append("\n");
+		}
+		return result.toString().trim();
+	}
 	
 
 

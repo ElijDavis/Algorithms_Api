@@ -1,11 +1,15 @@
 package com.example.Assignments.Assignment5.service;
 
+import java.util.List;
+
+import com.example.Assignments.Utility;
+
 public class Problem1 {
 	
 	
 	
 	
-	public static void intersection(int[] s1, int[] s2)
+	public static List<Integer> intersection(int[] s1, int[] s2)
 	{
 		// complete the intersection() method to output
 		// elements that occur in both s1 and s2
@@ -14,10 +18,12 @@ public class Problem1 {
 			int i = 0;
 			int j = 0;
 			int pre = Integer.MIN_VALUE; // Initialize pre with a very small value
+			List<Integer> result = new java.util.ArrayList<>();
 		
 			while (i < s1.length && j < s2.length) {
 				if (s1[i] == s2[j] && pre != s1[i]) {
-					print(s1[i] + " ");
+					//print(s1[i] + " ");
+					result.add(s1[i]);
 					pre = s1[i];
 					i++;
 					j++;
@@ -28,9 +34,10 @@ public class Problem1 {
 				}
 			}
 		
+		return result;
 	}
 	
-	public static void union(int[] s1, int[] s2)
+	public static List<Integer> union(int[] s1, int[] s2)
 	{
 		// complete the union() method to output
 		// the union s1 and s2
@@ -39,23 +46,27 @@ public class Problem1 {
 		int i = 0;
 		int j = 0;
 		int pre = Integer.MIN_VALUE; // Initialize pre with a very small value
+		List<Integer> result = new java.util.ArrayList<>();
 
 		while (i < s1.length && j < s2.length) {
 			if (s1[i] < s2[j]) {
 				if (pre != s1[i]) {
-					print(s1[i] + " ");
+					//print(s1[i] + " ");
+					result.add(s1[i]);
 					pre = s1[i];
 				}
 				i++;
 			} else if (s1[i] > s2[j]) {
 				if (pre != s2[j]) {
-					print(s2[j] + " ");
+					//print(s2[j] + " ");
+					result.add(s2[j]);
 					pre = s2[j];
 				}
 				j++;
 			} else { // Elements are equal
 				if (pre != s1[i]) {
-					print(s1[i] + " ");
+					//print(s1[i] + " ");
+					result.add(s1[i]);
 					pre = s1[i];
 				}
 				i++;
@@ -66,7 +77,8 @@ public class Problem1 {
 		// Print remaining elements of s1
 		while (i < s1.length) {
 			if (pre != s1[i]) {
-				print(s1[i] + " ");
+				//print(s1[i] + " ");
+				result.add(s1[i]);
 				pre = s1[i];
 			}
 			i++;
@@ -75,11 +87,14 @@ public class Problem1 {
 		// Print remaining elements of s2
 		while (j < s2.length) {
 			if (pre != s2[j]) {
-				print(s2[j] + " ");
+				//print(s2[j] + " ");
+				result.add(s2[j]);
 				pre = s2[j];
 			}
 			j++;
 		}
+
+		return result;
 	}
 	
 	public static void print(int x){
@@ -87,6 +102,28 @@ public class Problem1 {
 	}
 	public static void print(String x){
 		System.out.print(x);
+	}
+
+	public int[] intersection_(String a) {
+		// TODO Auto-generated method stub
+		//int[] s1 = Utility.parseIntArray(a);
+		//int[] s2 = Utility.parseIntArray(b);
+		String[] parts = Utility.parseStringArray(a);
+		int[] s1 = Utility.parseIntArray(parts[0]);
+		int[] s2 = Utility.parseIntArray(parts[1]);
+		List<Integer> result = intersection(s1, s2);
+		return Utility.parseIntArrayFromList(result);
+	}
+
+	public int[] union_(String a) {
+		// TODO Auto-generated method stub
+		//int[] s1 = Utility.parseIntArray(a);
+		//int[] s2 = Utility.parseIntArray(b);
+		String[] parts = Utility.parseStringArray(a);
+		int[] s1 = Utility.parseIntArray(parts[0]);
+		int[] s2 = Utility.parseIntArray(parts[1]);
+		List<Integer> result = intersection(s1, s2);
+		return Utility.parseIntArrayFromList(result);
 	}
 	
 	public static void main(String[] args) {

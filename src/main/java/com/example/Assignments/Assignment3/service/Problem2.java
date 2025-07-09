@@ -1,5 +1,7 @@
 package com.example.Assignments.Assignment3.service;
 
+import static com.example.Assignments.Utility.parseIntArray;
+
 public class Problem2 {
 	private static int power = 0; // Declare as int
 
@@ -23,6 +25,11 @@ public class Problem2 {
             return Countdigit(num);
         }
     }
+
+	public int Count_(String numStr) {
+		int num = parseIntArray(numStr)[0]; // Assuming numStr is a single integer in string format
+		return Countdigit(num);
+	}
 
 	public static void main(String[] args) {
 		// test your Countdigit() method here

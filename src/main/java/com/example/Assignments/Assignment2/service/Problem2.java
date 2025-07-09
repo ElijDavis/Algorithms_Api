@@ -1,5 +1,7 @@
 package com.example.Assignments.Assignment2.service;
 
+import static com.example.Assignments.Utility.parseDoubleArray;
+
 //import java.util.Arrays;
 //Elijah Davis
 //Cmpt 435L 111
@@ -44,7 +46,13 @@ public class Problem2 {
 		
 	}
 	
-
+	public int count_(String input) {
+		// Overloaded method to call the recursive count with initial parameters
+		//input is a comma-separated string of doubles, and the last parameter is the value to count
+		double[] A = parseDoubleArray(input);
+		double B = A[A.length - 1];
+		return count(A, B, 0, A.length - 1);
+	}
 	
 	public static void main(String[] args) {
 		// test your count() method here
