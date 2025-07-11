@@ -5,11 +5,21 @@ import java.util.LinkedList;
 import java.util.Random;
 import java.util.Stack;
 
+import com.example.Assignments.def.CGraph;
+import com.example.Assignments.def.DFSGraph;
+
 public class Graph {
 
 	private int[][] edges; // adjacency matrix
 	private LinkedList<Integer>[] adjlist; // adjacency list
 	private Object[] labels; // vertex label, i.e, vertex 0, its label = "A", vertex 1, its label = "B"
+
+	public Graph() {
+		// default constructor
+		edges = new int[0][0];
+		adjlist = new LinkedList[0];
+		labels = new Object[0];
+	}
 
 	public Graph(int n) {
 		// n: size of nodes
@@ -198,31 +208,31 @@ public class Graph {
 	/// The functions below are helper functions to create a graph and it's points
 	/////////////////////////////////////////////////////////////////////
 
-	public Graph createGraph(int n, int[] labels, int[][] edges){
+	public Graph createGraph(CGraph input) {
 		// Create a graph with n vertices, labels, and edges
-		Graph graph = new Graph(n);
-		for (int i = 0; i < n; i++) {
-			graph.setLabel(i, labels[i]);
+		Graph graph = new Graph(input.n);
+		for (int i = 0; i < input.n; i++) {
+			graph.setLabel(i, input.labels[i]);
 		}
-		for (int[] edge : edges) {
+		for (int[] edge : input.edges) {
 			graph.addEdge(edge[0], edge[1], edge[2]);
 		}
 		return graph;
 	}
 
-	public String DFS(Graph graph, int startVertex) {
+	public String DFS(DFSGraph input) {
 		// Perform DFS on the graph starting from startVertex
 		StringBuilder result = new StringBuilder();
-		boolean[] visited = new boolean[graph.size()];
+		boolean[] visited = new boolean[input.graph.size()];
 		Stack<Integer> stack = new Stack<>();
-		stack.push(startVertex);
+		stack.push(input.startVertex);
 		
 		while (!stack.isEmpty()) {
 			int vertex = stack.pop();
 			if (!visited[vertex]) {
 				visited[vertex] = true;
-				result.append(graph.getLabel(vertex)).append(" ");
-				int[] neighbors = graph.neighbors(vertex);
+				result.append(input.graph.getLabel(vertex)).append(" ");
+				int[] neighbors = input.graph.neighbors(vertex);
 				for (int neighbor : neighbors) {
 					if (!visited[neighbor]) {
 						stack.push(neighbor);

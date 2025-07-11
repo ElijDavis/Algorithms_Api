@@ -2,6 +2,8 @@ package com.example.Controller;
 
 import org.springframework.web.bind.annotation.*;
 import com.example.Assignments.assignment4.service.Max2ndMax;
+import com.example.Assignments.def.CGraph;
+import com.example.Assignments.def.DFSGraph;
 import com.example.Assignments.Assignment6.service.Graph;
 
 @RestController
@@ -76,24 +78,24 @@ public class AssignmentController {
     }
 
     // Assignment 6
-    /*@GetMapping("/assignment6/problem1/createGraph")
-    public Graph assignment6Problem1CreateGraph(@RequestParam String input) {
+    @PostMapping("/assignment6/problem1/createGraph")
+    public Graph assignment6Problem1CreateGraph(@RequestBody CGraph input) {
         com.example.Assignments.Assignment6.service.Graph problem =
                 new com.example.Assignments.Assignment6.service.Graph();
         return problem.createGraph(input);
     }
 
-    @GetMapping("/assignment6/problem1/DFS")
-    public String assignment6Problem1DFS(@RequestParam String input) {
+    @PostMapping("/assignment6/problem1/DFS")
+    public String assignment6Problem1DFS(@RequestBody DFSGraph input) {
         com.example.Assignments.Assignment6.service.Graph problem =
                 new com.example.Assignments.Assignment6.service.Graph();
         return problem.DFS(input);
     }
 
     @GetMapping("/assignment6/problem1/getAdjacencyList")
-    public String assignment6Problem1AdjacencyList(@RequestParam String input) {
+    public String assignment6Problem1AdjacencyList(@RequestBody Graph input) {
         com.example.Assignments.Assignment6.service.Graph problem =
                 new com.example.Assignments.Assignment6.service.Graph();
         return problem.getAdjacencyList(input);
-    }*/
+    }
 }
