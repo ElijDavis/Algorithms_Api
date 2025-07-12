@@ -92,7 +92,7 @@ public class AssignmentController {
         return problem.DFS(input);
     }
 
-    @GetMapping("/assignment6/problem1/getAdjacencyList")
+    @PostMapping("/assignment6/problem1/getAdjacencyList")
     public String assignment6Problem1AdjacencyList(@RequestBody Graph input) {
         com.example.Assignments.Assignment6.service.Graph problem =
                 new com.example.Assignments.Assignment6.service.Graph();
