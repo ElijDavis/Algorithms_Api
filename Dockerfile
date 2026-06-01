@@ -1,5 +1,6 @@
 # Use the official OpenJDK 21 runtime
-FROM openjdk:21-jdk-slim
+#FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jdk-jammy
 
 # Set the working directory in the container
 WORKDIR /app
