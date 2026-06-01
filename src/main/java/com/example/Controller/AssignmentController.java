@@ -102,8 +102,19 @@ public class AssignmentController {
 
     // 🌟 AUTOMATED PLATFORM HEALTH CHECK
     // This catches exactly what Spring exposes under the /api prefix
-    @GetMapping(value = {"", "/", "/health"})
+    /*@GetMapping(value = {"", "/", "/health"})
     public ResponseEntity<String> platformHealthCheck() {
         return ResponseEntity.ok("OK");
+    }*/
+
+    @GetMapping("/")
+    public ResponseEntity<String> rootHealth() {
+        return ResponseEntity.ok("OK");
     }
+
+    @GetMapping("/health")
+    public ResponseEntity<String> standardHealth() {
+        return ResponseEntity.ok("OK");
+    }
+
 }
