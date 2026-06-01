@@ -99,13 +99,13 @@ public class AssignmentController {
                 new com.example.Assignments.Assignment6.service.Graph();
         return problem.getAdjacencyList(input);
     }
+}
 
-    // 🌟 AUTOMATED PLATFORM HEALTH CHECK
-    // This array format ensures it responds to both standard paths beautifully
-    // 🌟 AUTOMATED PLATFORM HEALTH CHECK
-    // This captures the absolute root, the api root, and standard health paths
-    @GetMapping(value = {"/", "/api", "/health", "/api/health"})
-    public ResponseEntity<String> platformHealthCheck() {
-        return ResponseEntity.ok("OK");
+
+//was messing up the commit, so I think I was getting an error. This should work so test wit the msg
+@GetMapping("/") //I doubt you can do empty strings, but that's what it is 🤷‍♂️
+public class HealthController {
+    public boolean healthy(@RequestParam String input) {
+        return {status: "ok", framework: "springboot", platform: "klade"};
     }
-}//oh yeah
+}
