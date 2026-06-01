@@ -1,6 +1,7 @@
 package com.example.Controller;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity; // 🌟 Added import
 import com.example.Assignments.assignment4.service.Max2ndMax;
 import com.example.Assignments.def.CGraph;
 import com.example.Assignments.def.DFSGraph;
@@ -97,5 +98,14 @@ public class AssignmentController {
         com.example.Assignments.Assignment6.service.Graph problem =
                 new com.example.Assignments.Assignment6.service.Graph();
         return problem.getAdjacencyList(input);
+    }
+
+    // 🌟 AUTOMATED PLATFORM HEALTH CHECK
+    // This array format ensures it responds to both standard paths beautifully
+    // 🌟 AUTOMATED PLATFORM HEALTH CHECK
+    // This captures the absolute root, the api root, and standard health paths
+    @GetMapping(value = {"/", "/api", "/health", "/api/health"})
+    public ResponseEntity<String> platformHealthCheck() {
+        return ResponseEntity.ok("OK");
     }
 }
