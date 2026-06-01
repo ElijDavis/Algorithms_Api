@@ -101,8 +101,8 @@ public class AssignmentController {
     }
 
     // 🌟 AUTOMATED PLATFORM HEALTH CHECK
-    // This array format ensures it responds to both standard paths beautifully
-    @GetMapping(value = {"/", "/health"})
+    // This catches exactly what Spring exposes under the /api prefix
+    @GetMapping(value = {"", "/", "/health"})
     public ResponseEntity<String> platformHealthCheck() {
         return ResponseEntity.ok("OK");
     }
