@@ -99,3 +99,12 @@ public class AssignmentController {
         return problem.getAdjacencyList(input);
     }
 }
+
+
+//try creating own route. I don't think this is correct tho
+@RequestMapping("/")
+public class HealthController {
+    public boolean healthy(@RequestParam String input) {
+        return {status: "ok", framework: "springboot", platform: "klade"};
+    }
+}
