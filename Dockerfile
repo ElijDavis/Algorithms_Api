@@ -1,5 +1,5 @@
-# Use the official OpenJDK 17 runtime (change version if needed)
-FROM openjdk:17-jdk-slim
+# Use the official OpenJDK 21 runtime
+FROM openjdk:21-jdk-slim
 
 # Set the working directory in the container
 WORKDIR /app
