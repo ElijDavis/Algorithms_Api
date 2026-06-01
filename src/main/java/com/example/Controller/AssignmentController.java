@@ -101,7 +101,7 @@ public class AssignmentController {
 }
 
 
-//was messing up the commit, so I think I was getting an error. This should work so test with the msg
+//was messing up the commit, so I think I was getting an error. This should work so test wit the msg
 @GetMapping("/") //I doubt you can do empty strings, but that's what it is 🤷‍♂️
 public class HealthController {
     public boolean healthy(@RequestParam String input) {
