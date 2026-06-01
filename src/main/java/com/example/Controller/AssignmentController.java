@@ -1,6 +1,7 @@
 package com.example.Controller;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity; // 🌟 Added import
 import com.example.Assignments.assignment4.service.Max2ndMax;
 import com.example.Assignments.def.CGraph;
 import com.example.Assignments.def.DFSGraph;
@@ -97,5 +98,14 @@ public class AssignmentController {
         com.example.Assignments.Assignment6.service.Graph problem =
                 new com.example.Assignments.Assignment6.service.Graph();
         return problem.getAdjacencyList(input);
+    }
+}
+
+
+//was messing up the commit, so I think I was getting an error. This should work so test wit the msg
+@GetMapping("/") //I doubt you can do empty strings, but that's what it is 🤷‍♂️
+public class HealthController {
+    public boolean healthy(@RequestParam String input) {
+        return {status: "ok", framework: "springboot", platform: "klade"};
     }
 }
