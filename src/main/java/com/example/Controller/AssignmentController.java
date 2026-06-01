@@ -103,6 +103,7 @@ public class AssignmentController {
 
 //try creating own route. I don't think this is correct tho
 @RequestMapping("/")
+@GetMapping("") //I doubt you can do empty strings, but that's what it is 🤷‍♂️
 public class HealthController {
     public boolean healthy(@RequestParam String input) {
         return {status: "ok", framework: "springboot", platform: "klade"};
