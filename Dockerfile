@@ -1,15 +1,27 @@
-# Use the official OpenJDK 21 runtime
-#FROM openjdk:21-jdk-slim
-FROM eclipse-temurin:21-jdk-jammy
-
-# Set the working directory in the container
+# --- Stage 1: Build Environment ---
+# Pulls a temporary image containing Maven and Java 21 to compile your code
+FROM maven:3.9.6-eclipse-temurin-21-alpine AS builder
 WORKDIR /app
 
-# Copy the built jar file into the container
-COPY target/*.jar app.jar
+# Copy your maven configuration file first to leverage layer caching
+COPY pom.xml ./
 
-# Expose the port your app runs on (commonly 8080)
+# Copy your actual source code folder
+COPY src ./src
+
+# Compile the source code and build the production executable jar safely
+RUN mvn clean package -DskipTests
+
+# --- Stage 2: Minimal Production Runtime ---
+# Drops the heavy compiler tools and uses a light runtime environment
+FROM eclipse-temurin:21-jre-jammy
+WORKDIR /app
+
+# Copy the built jar from the temporary builder stage above
+COPY --from=builder /app/target/*.jar app.jar
+
+# Expose the port your Spring Boot app runs on
 EXPOSE 8080
 
-# Run the jar file
+# Execute the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
