@@ -1,6 +1,7 @@
 package com.example.Controller;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity; // 🌟 Added import
 import com.example.Assignments.assignment4.service.Max2ndMax;
 import com.example.Assignments.def.CGraph;
 import com.example.Assignments.def.DFSGraph;
