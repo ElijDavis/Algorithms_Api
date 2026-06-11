@@ -9,8 +9,11 @@ COPY pom.xml ./
 # Copy your actual source code folder
 COPY src ./src
 
-# Compile the source code and build the production executable jar safely
-RUN mvn clean package -DskipTests
+# Prevent Maven from thrashing CPU/RAM by limiting heap memory and using a low-overhead GC
+ENV MAVEN_OPTS="-Xmx512m -XX:+UseSerialGC"
+
+# Compile the source code in non-interactive batch mode (-B) and skip tests
+RUN mvn clean package -B -DskipTests
 
 # --- Stage 2: Minimal Production Runtime ---
 # Drops the heavy compiler tools and uses a light runtime environment
